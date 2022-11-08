@@ -37,7 +37,7 @@
         {
           "type": "az",
           "style": "plain",
-          "foreground": "#91abff",
+          "foreground": "#9375ff",
           "template": "[{{ .User.Name }}@{{ .Name }}] "
         },
         {
