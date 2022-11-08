@@ -1,0 +1,85 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "root",
+          "style": "diamond",
+          "template": "\uf0e7",
+          "properties": {
+            "root_icon": "\uf292 "
+          }
+        },
+        {
+          "type": "time",
+          "style": "diamond",
+          "foreground": "#7eb8da",
+          "template": "[{{ .CurrentDate | date .Format }}] ",
+          "properties": {
+            "time_format": "15:04:05.999 (02 Jan 2006)"
+          }
+        },
+        {
+          "type": "executiontime",
+          "style": "diamond",
+          "foreground": "#dfb39d",
+          "template": "[{{ .FormattedMs }}s] ",
+          "properties": {
+            "style": "dallas",
+            "threshold": 0
+          }
+        },
+        {
+          "type": "az",
+          "style": "plain",
+          "foreground": "#91abff",
+          "template": "[{{ .User.Name }}@{{ .ID }}] "
+        },
+        {
+          "type": "exit",
+          "style": "powerline",
+          "foreground": "#f94255",
+          "template": "[<#ffffff>\ufc8d</> ERROR]"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#a3df9d",
+          "template": "\u2514\u2500[<#98bfad>{{ .Path }}</>] ",
+          "properties": {
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#ffa5d8",
+          "template": "[{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff>\uf044</> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff>\uf046</> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff>\uf692</> {{ .StashCount }}{{ end }}] ",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#7eb8da2d",
+          "template": "→"
+        }
+      ],
+      "newline": true
+    }
+  ]
+}
