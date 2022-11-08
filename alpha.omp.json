@@ -38,7 +38,7 @@
           "type": "az",
           "style": "plain",
           "foreground": "#91abff",
-          "template": "[{{ .User.Name }}@{{ .ID }}] "
+          "template": "[{{ .User.Name }}@{{ .Name }}] "
         },
         {
           "type": "exit",
